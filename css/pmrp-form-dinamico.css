@@ -484,14 +484,14 @@ div.required label.control-label.preenchido::after {
 .toggle-label {
     cursor: pointer;
     padding: 5px 10px;
-    border: 1px solid #0159dc;
+    border: 1px solid #9dcbff;
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 15px;
     font-weight: bold;
-    color: #0159dc;
+    color: #1d4c85;
 }
 
 .toggle-label:hover {
@@ -505,7 +505,7 @@ div.required label.control-label.preenchido::after {
 .toggle-simbolo {
     font-size: 18px;
     font-weight: bold;
-    color: #0159dc;
+    color: #1d4c85;
     transition: transform 0.3s ease;
 }
 
@@ -712,7 +712,7 @@ input[type="checkbox"]:focus {
 }
 
 .schema-form-checkboxes .checkbox:has(input[type="checkbox"]:checked) > label {
-    color: #0159dc;
+    color: #1d4c85;
     font-weight: 600;
 }
 
