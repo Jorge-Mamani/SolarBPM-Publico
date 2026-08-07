@@ -4,6 +4,61 @@
     * GitHub: https://github.com/Jorge-Mamani/SolarBPM-Publico/blob/main/css/pmrp-form-dinamico.css
 */
 
+:root {
+
+    /* === Cores institucionais (marca) === */
+    --cor-marca-primaria:     #0159dc;  /* botões, links, foco, ícone de ajuda */
+    --cor-marca-primaria-rgb: 1, 89, 220;
+    --cor-marca-escura:       #1d4c85;  /* h1, texto de destaque, toggle, badge preenchido */
+    --cor-marca-clara:        #d6ecff;  /* fundos preenchidos, botão confirmar */
+    --cor-marca-clara-acento: #3299ff;  /* ponta clara do gradiente do alerta info */
+    --cor-marca-borda:        #9dcbff;  /* bordas de input, divisor horizontal */
+    --cor-marca-hover:        #e6f2ff;  /* hover sutil sobre fundo claro */
+    --cor-marca-fundo-badge:  #e6f0ff;  /* fundo do botão de ajuda (?) */
+
+    /* === Cores semânticas de status (alertas) === */
+    --cor-sucesso:        #2e9e64;
+    --cor-sucesso-escura: #0f5132;
+    --cor-sucesso-media:  #1e7a4f;
+
+    --cor-atencao:        #f0b90b;
+    --cor-atencao-escura: #b8860b;
+    --cor-atencao-media:  #d4a017;
+
+    --cor-perigo:         #e85d5d;
+    --cor-perigo-escura:  #a4263a;
+    --cor-perigo-media:   #d2373f;
+    --cor-perigo-fundo:   #f8d7da;
+    --cor-perigo-borda:   #f1aeb5;
+
+    /* Growl "urgente" é proposital em vermelho — separado do --cor-perigo
+       comum porque é usado só pra mensagens mais graves do sistema. */
+    --cor-growl-urgente: #F7857C;
+
+    /* === Cores neutras / texto === */
+    --texto-titulo:     #333333;  /* h2, alert-header-title, modal-content, btn-cancelar */
+    --texto-corpo:      #555555;  /* h4, parágrafos de modal/alerta */
+    --texto-secundario: #444444;  /* popup de ajuda */
+    --texto-loader:     #3c3c3c;  /* spinner, ícone de loading */
+
+    /* === Bordas e cinzas neutros === */
+    --borda-padrao:               #cccccc;  /* checkbox desmarcado, divisor de modal, btn-cancelar */
+    --borda-suave:                #dddddd;  /* moldura de imagem no popup */
+    --cinza-cancelar-hover:       #b3b3b3;
+    --cinza-desabilitado:         #e0e0e0;
+    --cinza-desabilitado-borda:   #cfcfcf;
+    --cinza-desabilitado-marcado: #bdbdbd;
+
+    /* === Sombras padronizadas === */
+    --sombra-card:  0 2px 8px rgba(0, 0, 0, 0.12);
+    --sombra-modal: 0 8px 24px rgba(0, 0, 0, 0.15);
+    --sombra-foco:  0 0 0 3px rgba(var(--cor-marca-primaria-rgb), 0.25);
+
+    /* === Tipografia === */
+    --fonte-padrao: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
 /*
     * body
 */
@@ -19,7 +74,7 @@ body {
     text-align: left !important;
     font-weight: 700;
     font-size: 1.5rem;
-    color: #333333;
+    color: var(--texto-titulo);
     margin: 8px 0px;
 }
 
@@ -27,7 +82,7 @@ body {
     text-align: left !important;
     font-weight: 600;
     font-size: 1.15rem;
-    color: #333333;
+    color: var(--texto-titulo);
     margin: 5px 0px;
 }
 
@@ -35,7 +90,7 @@ body {
     text-align: left !important;
     font-weight: 500;
     font-size: 1rem;
-    color: #555555;
+    color: var(--texto-corpo);
     margin: 5px 0px;
 }
 
@@ -77,7 +132,7 @@ h1 {
     box-sizing: border-box;
     font-size: clamp(1.7rem, 3vw, 4rem);
     font-weight: 700;
-    color: #1d4c85;
+    color: var(--cor-marca-escura);
     white-space: normal;
     word-break: break-word;
     text-align: center;
@@ -129,7 +184,7 @@ h1 {
     margin-top: 50px;
     margin-bottom: 0px;
     padding: 12px 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    box-shadow: var(--sombra-card);
     color: #ffffff;
     font-size: 14px;
     font-weight: 500;
@@ -144,22 +199,22 @@ h1 {
 
 /* Info (padrão / azul institucional) */
 [fd-element="alert"] .alert.alert-info {
-    background: linear-gradient(90deg, #0159dc, #2b7aec, #3299ff);
+    background: linear-gradient(90deg, var(--cor-marca-primaria), #2b7aec, var(--cor-marca-clara-acento));
 }
 
 /* Aviso */
 [fd-element="alert"] .alert.alert-warning {
-    background: linear-gradient(90deg, #b8860b, #d4a017, #f0b90b);
+    background: linear-gradient(90deg, var(--cor-atencao-escura), var(--cor-atencao-media), var(--cor-atencao));
 }
 
 /* Erro */
 [fd-element="alert"] .alert.alert-danger {
-    background: linear-gradient(90deg, #a4263a, #d2373f, #e85d5d);
+    background: linear-gradient(90deg, var(--cor-perigo-escura), var(--cor-perigo-media), var(--cor-perigo));
 }
 
 /* Sucesso */
 [fd-element="alert"] .alert.alert-success {
-    background: linear-gradient(90deg, #0f5132, #1e7a4f, #2e9e64);
+    background: linear-gradient(90deg, var(--cor-sucesso-escura), var(--cor-sucesso-media), var(--cor-sucesso));
 }
 
 /*
@@ -174,8 +229,8 @@ h1 {
     text-align: center;
     border: none;
     border-radius: 999px;
-    background-color: #e6f0ff;
-    color: #0159dc;
+    background-color: var(--cor-marca-fundo-badge);
+    color: var(--cor-marca-primaria);
     cursor: pointer;
     display: inline-block;
     vertical-align: middle;
@@ -185,7 +240,7 @@ h1 {
 
 /* Icone ? (opcional, agora mais discreto e alinhado) */
 .help-button .help-icon {
-    background-color: #0159dc;
+    background-color: var(--cor-marca-primaria);
     color: white;
     border-radius: 50%;
     width: 14px;
@@ -202,13 +257,13 @@ h1 {
 
 /* Hover */
 .help-button:hover {
-    background: #0159dc;
+    background: var(--cor-marca-primaria);
     color: #fff;
 }
 
 .help-button:hover .help-icon {
     background-color: #fff;
-    color: #0159dc;
+    color: var(--cor-marca-primaria);
 }
 
 /* Backdrop (fundo escuro) */
@@ -232,8 +287,8 @@ h1 {
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    color: #444;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--texto-secundario);
+    font-family: var(--fonte-padrao);
     line-height: 1.6;
     position: relative;
     transform: scale(0.8);
@@ -247,7 +302,7 @@ h1 {
 /* Título do popup */
 .popup-ajuda h3 {
     margin-top: 0;
-    color: #0159dc;
+    color: var(--cor-marca-primaria);
     font-weight: 600;
     font-size: 1.4em;
     margin-bottom: 10px;
@@ -260,28 +315,28 @@ h1 {
     height: auto;
     border-radius: 8px;
     margin-bottom: 15px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--borda-suave);
 }
 
 /* Botão Fechar fixo embaixo */
 .popup-ajuda .btn-fechar {
     padding: 8px 16px;
     border: none;
-    background: #d9534f;
+    background: var(--cor-perigo-escura);
     color: white;
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
     font-size: 1em;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s ease;
+    transition: opacity 0.3s ease;
 
     margin-top: auto;
     align-self: flex-end;
 }
 
 .popup-ajuda .btn-fechar:hover {
-    background: #c9302c;
+    opacity: 0.85;
 }
 
 /*
@@ -300,16 +355,16 @@ div.required label.control-label::after {
     display: inline-block !important;
     white-space: nowrap !important;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
-    background-color: #f8d7da !important;
-    color: #842029 !important;
-    border: 1px solid #f1aeb5 !important;
+    background-color: var(--cor-perigo-fundo) !important;
+    color: var(--cor-perigo-escura) !important;
+    border: 1px solid var(--cor-perigo-borda) !important;
 }
 
 /* Azul claro quando preenchido */
 div.required label.control-label.preenchido::after {
-    background-color: #d6ecff !important;
-    color: #1d4c85 !important;
-    border-color: #9dcbff !important;
+    background-color: var(--cor-marca-clara) !important;
+    color: var(--cor-marca-escura) !important;
+    border-color: var(--cor-marca-borda) !important;
 }
 
 /*
@@ -321,7 +376,7 @@ div.required label.control-label.preenchido::after {
 }
 
 #loading-spinner .sk-circle:before {
-    background-color: #3c3c3c !important;
+    background-color: var(--texto-loader) !important;
 }
 
 #loading-spinner.container-full {
@@ -342,7 +397,7 @@ div.required label.control-label.preenchido::after {
 
 #loading-spinner .outer::after {
     content: '' !important;
-    color: #3c3c3c;
+    color: var(--texto-loader);
     font-size: 20px;
     font-weight: bold;
     display: block;
@@ -360,7 +415,7 @@ div.required label.control-label.preenchido::after {
   * Alerta Sistema
 */
 .growl-container .growl-item.alert-warning {
-    background: #F7857C !important;
+    background: var(--cor-growl-urgente) !important;
     color: #000000 !important;
     font-size: 14px !important;
     font-weight: bold;
@@ -399,7 +454,7 @@ div.required label.control-label.preenchido::after {
     background: #ffffff;
     padding: 24px 20px;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--sombra-modal);
     text-align: center;
     font-family: "Segoe UI", Roboto, sans-serif;
     width: 90%;
@@ -428,7 +483,7 @@ div.required label.control-label.preenchido::after {
 .alert-header-title {
     font-size: 20px;
     font-weight: 700;
-    color: #333;
+    color: var(--texto-titulo);
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -442,7 +497,7 @@ div.required label.control-label.preenchido::after {
 .alert-box p {
     margin: 0 0 14px 0;
     line-height: 1.6;
-    color: #555;
+    color: var(--texto-corpo);
     font-size: 15px;
 }
 
@@ -451,20 +506,20 @@ div.required label.control-label.preenchido::after {
     display: inline-block;
     margin-top: 10px;
     padding: 10px 28px;
-    background: #d6ecff;
-    color: #1d4c85;
+    background: var(--cor-marca-clara);
+    color: var(--cor-marca-escura);
     font-size: 15px;
     font-weight: 600;
-    border: 1px solid #9dcbff;
+    border: 1px solid var(--cor-marca-borda);
     border-radius: 6px;
     cursor: pointer;
     transition: background 0.25s ease, color 0.25s ease, transform 0.15s ease;
 }
 
 .alert-box button:hover {
-    background: #0159dc;
+    background: var(--cor-marca-primaria);
     color: #fff;
-    border-color: #0159dc;
+    border-color: var(--cor-marca-primaria);
 }
 
 .alert-box button:active {
@@ -503,18 +558,18 @@ div.required label.control-label.preenchido::after {
 .toggle-label {
     cursor: pointer;
     padding: 5px 10px;
-    border: 1px solid #9dcbff;
+    border: 1px solid var(--cor-marca-borda);
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 15px;
     font-weight: bold;
-    color: #1d4c85;
+    color: var(--cor-marca-escura);
 }
 
 .toggle-label:hover {
-    background: #e6f2ff;
+    background: var(--cor-marca-hover);
 }
 
 .toggle-label .texto {
@@ -524,7 +579,7 @@ div.required label.control-label.preenchido::after {
 .toggle-simbolo {
     font-size: 18px;
     font-weight: bold;
-    color: #1d4c85;
+    color: var(--cor-marca-escura);
     transition: transform 0.3s ease;
 }
 
@@ -587,7 +642,7 @@ div.required label.control-label.preenchido::after {
 
 .modal-box h3 {
     margin: 0 0 15px;
-    color: #0159dc;
+    color: var(--cor-marca-primaria);
     text-align: center;
 }
 
@@ -596,9 +651,9 @@ div.required label.control-label.preenchido::after {
     max-height: 85%;
     overflow-y: auto;
     font-size: 14px;
-    color: #333;
+    color: var(--texto-titulo);
     margin-bottom: 20px;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid var(--borda-padrao);
     padding-top: 10px;
 }
 
@@ -623,24 +678,24 @@ div.required label.control-label.preenchido::after {
 }
 
 .btn-cancelar {
-    background: #ccc;
-    color: #333;
+    background: var(--borda-padrao);
+    color: var(--texto-titulo);
 }
 
 .btn-cancelar:hover {
-    background: #b3b3b3;
+    background: var(--cinza-cancelar-hover);
 }
 
 .btn-confirmar {
-    background: #d6ecff;
-    color: #1d4c85;
-    border: 1px solid #9dcbff !important;
+    background: var(--cor-marca-clara);
+    color: var(--cor-marca-escura);
+    border: 1px solid var(--cor-marca-borda) !important;
 }
 
 .btn-confirmar:hover {
-    background: #0159dc;
+    background: var(--cor-marca-primaria);
     color: #fff;
-    border-color: #0159dc !important;
+    border-color: var(--cor-marca-primaria) !important;
 }
 
 /*
@@ -654,7 +709,7 @@ input[type="checkbox"] {
     -moz-appearance: none;
     appearance: none;
     background-color: #ffffff;
-    border: 2px solid #ccc;
+    border: 2px solid var(--borda-padrao);
     border-radius: 4px;
     position: relative;
     outline: none;
@@ -680,8 +735,8 @@ input[type="checkbox"]::before {
 
 /* 3. Quando marcado */
 input[type="checkbox"]:checked {
-    background-color: #0159dc;
-    border-color: #0159dc;
+    background-color: var(--cor-marca-primaria);
+    border-color: var(--cor-marca-primaria);
 }
 input[type="checkbox"]:checked::before {
     transform: rotate(45deg) scale(1);
@@ -689,19 +744,19 @@ input[type="checkbox"]:checked::before {
 
 /* 4. Quando desabilitado */
 input[type="checkbox"]:disabled {
-    background-color: #e0e0e0 !important;
-    border-color: #cfcfcf !important;
+    background-color: var(--cinza-desabilitado) !important;
+    border-color: var(--cinza-desabilitado-borda) !important;
     cursor: not-allowed;
 }
 
 input[type="checkbox"]:disabled:checked {
-    background-color: #bdbdbd !important;
-    border-color: #bdbdbd !important;
+    background-color: var(--cinza-desabilitado-marcado) !important;
+    border-color: var(--cinza-desabilitado-marcado) !important;
 }
 
 input[type="checkbox"]:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(1, 89, 220, 0.25);
+    box-shadow: var(--sombra-foco);
 }
 
 /* 5. Corrigir sobreposição e alinhar texto */
@@ -731,7 +786,7 @@ input[type="checkbox"]:focus {
 }
 
 .schema-form-checkboxes .checkbox:has(input[type="checkbox"]:checked) > label {
-    color: #1d4c85;
+    color: var(--cor-marca-escura);
     font-weight: 600;
 }
 
@@ -746,7 +801,7 @@ input[type="checkbox"]:focus {
 }
 
 .form-control:focus {
-    border-color: #0159dc;
+    border-color: var(--cor-marca-primaria);
     box-shadow: 0 0 0 3px rgba(1, 89, 220, 0.2);
 }
 
@@ -762,7 +817,7 @@ input[type="checkbox"]:focus {
 
 .btn:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(1, 89, 220, 0.25);
+    box-shadow: var(--sombra-foco);
 }
 
 /* Botão "principal" (campo tipo Botão) — o Solar BPM pinta .btn-primary de
@@ -770,9 +825,9 @@ input[type="checkbox"]:focus {
    branco igual aos outros estilos (btn-warning laranja, btn-danger
    vermelho). No hover só esmaece um pouco, sem trocar de cor. */
 .btn-primary {
-    background-color: #0159dc !important;
+    background-color: var(--cor-marca-primaria) !important;
     color: #fff !important;
-    border-color: #0159dc !important;
+    border-color: var(--cor-marca-primaria) !important;
     transition: opacity 0.2s ease, transform 0.15s ease;
 }
 
@@ -784,7 +839,7 @@ input[type="checkbox"]:focus {
 /* Mapa (Leaflet) */
 .leaflet-container {
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    box-shadow: var(--sombra-card);
 }
 
 /* Consulta */
@@ -888,5 +943,5 @@ input[type="checkbox"]:focus {
 [fd-element="horizontal-rule"]::after {
     content: '';
     display: block;
-    border-top: 2px solid #9dcbff;
+    border-top: 2px solid var(--cor-marca-borda);
 }
