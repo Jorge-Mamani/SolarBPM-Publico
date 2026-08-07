@@ -766,18 +766,19 @@ input[type="checkbox"]:focus {
 }
 
 /* Botão "principal" (campo tipo Botão) — o Solar BPM pinta .btn-primary de
-   verde por padrão; sobrescreve pra ficar no azul da marca. */
+   verde por padrão; sobrescreve pra ficar no azul da marca, sólido +
+   branco igual aos outros estilos (btn-warning laranja, btn-danger
+   vermelho). No hover só esmaece um pouco, sem trocar de cor. */
 .btn-primary {
-    background-color: #d6ecff !important;
-    color: #1d4c85 !important;
-    border-color: #9dcbff !important;
+    background-color: #0159dc !important;
+    color: #fff !important;
+    border-color: #0159dc !important;
+    transition: opacity 0.2s ease, transform 0.15s ease;
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-    background-color: #0159dc !important;
-    color: #fff !important;
-    border-color: #0159dc !important;
+    opacity: 0.85;
 }
 
 /* Mapa (Leaflet) */
