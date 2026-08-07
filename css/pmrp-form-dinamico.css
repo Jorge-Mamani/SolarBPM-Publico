@@ -1,0 +1,713 @@
+/*
+    * body
+*/
+body {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*
+    * Alinhar h3 (Subtítulos)
+*/
+.schema-form-h3 h3 {
+    text-align: left !important;
+    font-weight: 600;
+    color: #333333;
+    margin: 5px 0px;
+}
+
+/*
+    * Cabeçalho
+*/
+/* Container do cabeçalho */
+.schema-form-header {
+    position: relative;
+    min-height: 120px;
+    box-sizing: border-box;
+}
+
+/* logoPMRP responsiva */
+[key="logoPMRP"], [key^="logoPMRP"] {
+    padding-top: 20px !important;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: clamp(120px, 25vw, 250px); /* Responsivo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+[key="logoPMRP"] img, [key^="logoPMRP"] img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: contain;
+}
+
+h1 {
+    padding-top: 20px !important;
+    margin: 20px auto !important;
+    display: block;
+    box-sizing: border-box;
+    font-size: clamp(1.7rem, 3vw, 4rem);
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+    width: calc(100% - clamp(120px, 25vw, 250px)); /* Largura total menos a largura do logoPMRP */
+    margin-left: clamp(120px, 25vw, 250px) !important; /* Margem para afastar do logoPMRP */
+}
+
+@media (max-width: 768px) {
+    [key="logoPMRP"], [key^="logoPMRP"] {
+        padding-top: 20px !important;
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 250px;
+        margin: 0 auto 20px auto;
+    }
+
+    h1 {
+        width: 100% !important;
+        padding-top: 20px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    [key="logoPMRP"], [key^="logoPMRP"] {
+        padding-top: 20px !important;
+        width: 250px;
+    }
+
+    h1 {
+        font-size: clamp(1.4rem, 2.5vw, 2rem);
+        padding-top: 20px !important;
+    }
+}
+
+/*
+    * Alerta
+*/
+[fd-element="alert"] .alert {
+    background: linear-gradient(90deg, #0861a4, #0b90d2, #0ebeff);
+    border: none;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    padding: 3px 0px;
+}
+
+/*
+    * Ajuda
+*/
+.help-button {
+    margin-left: 6px;
+    padding: 1px 6px;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1.4;
+    text-align: center;
+    border: none;
+    border-radius: 999px;
+    background-color: #e6f0ff;
+    color: #0056b3;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Icone ? (opcional, agora mais discreto e alinhado) */
+.help-button .help-icon {
+    background-color: #0056b3;
+    color: white;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1;
+    margin-right: 3px;
+    vertical-align: middle;
+}
+
+/* Hover */
+.help-button:hover {
+    background: #007bff;
+    color: #fff;
+}
+
+.help-button:hover .help-icon {
+    background-color: #fff;
+    color: #007bff;
+}
+
+/* Backdrop (fundo escuro) */
+.backdrop-ajuda {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.popup-ajuda {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    color: #444;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    position: relative;
+    transform: scale(0.8);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 90vw;
+}
+
+/* Título do popup */
+.popup-ajuda h3 {
+    margin-top: 0;
+    color: #0056b3;
+    font-weight: 600;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+/* Imagem */
+.popup-ajuda img {
+    width: 700px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+}
+
+/* Botão Fechar fixo embaixo */
+.popup-ajuda .btn-fechar {
+    padding: 8px 16px;
+    border: none;
+    background: #d9534f;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1em;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+
+    margin-top: auto;
+    align-self: flex-end;
+}
+
+.popup-ajuda .btn-fechar:hover {
+    background: #c9302c;
+}
+
+/*
+    * Obrigatório
+*/
+/* VERMELHO (vazio) */
+div.required label.control-label::after {
+    content: '' !important;
+    margin-left: 4px !important;
+    padding: 1px 5px !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    border-radius: 10px !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    background-color: #f8d7da !important;
+    color: #842029 !important;
+}
+
+/* Verde quando preenchido */
+div.required label.control-label.preenchido::after {
+    background-color: #d1e7dd !important;
+    color: #0f5132 !important;
+}
+
+/*
+* Loader
+*/
+#loading-spinner .sk-fading-circle {
+    width: 80px;
+    height: 80px;
+}
+
+#loading-spinner .sk-circle:before {
+    background-color: #3c3c3c !important;
+}
+
+#loading-spinner.container-full {
+    background: rgba(0, 0, 0, 0.2) !important;
+}
+
+#loading-spinner .outer,
+#loading-spinner .middle,
+#loading-spinner .inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loading-spinner .outer {
+    flex-direction: column !important;
+}
+
+#loading-spinner .outer::after {
+    content: '' !important;
+    color: #3c3c3c;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin-top: -10px !important;
+    animation: blink 1.9s infinite ease-in-out;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/*
+  * Alerta Sistema
+*/
+.growl-container .growl-item.alert-warning {
+    background: #F7857C !important;
+    color: #000000 !important;
+    font-size: 14px !important;
+    font-weight: bold;
+    text-align: center !important;
+}
+
+.growl-container .growl-item .growl-message,
+.growl-container .growl-item .growl-message * {
+    color: #000 !important;
+}
+
+.close {
+    color: #000 !important;
+}
+
+/*
+    * Alert Personalizado
+*/
+/* Fundo escurecido */
+.alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Caixa principal */
+.alert-box {
+    background: #ffffff;
+    padding: 24px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    width: 90%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    animation: slideUp 0.35s ease;
+}
+
+/* Cabeçalho com logoPMRP e título */
+.alert-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.alert-header img {
+    max-height: 42px;
+    position: absolute;
+    left: 0;
+}
+
+.alert-header-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    width: 100%;
+}
+
+/* Texto */
+.alert-box p {
+    margin: 0 0 14px 0;
+    line-height: 1.6;
+    color: #555;
+    font-size: 15px;
+}
+
+/* Botão */
+.alert-box button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 28px;
+    background: #007bff;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.alert-box button:hover {
+    background: #0056b3;
+}
+
+.alert-box button:active {
+    transform: scale(0.97);
+}
+
+.alert-box button:focus {
+    outline: 2px solid #cce0ff;
+    outline-offset: 2px;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/*
+  * Paragrafos
+*/
+.toggle-label {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #00838F;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: bold;
+    color: #00838F;
+}
+
+.toggle-label:hover {
+    background: #E0F7F9;
+}
+
+.toggle-label .texto {
+    flex: 1;
+}
+
+.toggle-simbolo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #00838F;
+    transition: transform 0.3s ease;
+}
+
+.toggle-conteudo {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 1s ease, opacity 1s ease;
+    padding: 0 4px;
+}
+
+/*
+  * Confirmação de dados
+*/
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Caixa do modal */
+.modal-box {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 35%;
+    height: 700px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: modal-show 0.3s ease;
+    font-family: Arial, sans-serif;
+}
+
+@keyframes modal-show {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-box h3 {
+    margin: 0 0 15px;
+    color: #00838F;
+    text-align: center;
+}
+
+.modal-content {
+    height: 85%;
+    max-height: 85%;
+    overflow-y: auto;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.modal-content p {
+    padding-left: 10px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-buttons button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-cancelar {
+    background: #ccc;
+    color: #333;
+}
+
+.btn-cancelar:hover {
+    background: #b3b3b3;
+}
+
+.btn-confirmar {
+    background: #00838F;
+    color: #fff;
+}
+
+.btn-confirmar:hover {
+    background: #006d76;
+}
+
+/*
+* Switches
+*/
+/* 1. Estrutura do switch */
+input[type="checkbox"] {
+    width: 29px;
+    height: 14px;
+    appearance: none;
+    background-color: #dfdfdf;
+    border-radius: 14px;
+    position: relative;
+    outline: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border: none;
+    margin: 0;
+}
+
+/* 2. Botão deslizante */
+input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    background-color: #9e9e9e;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* 3. Quando marcado */
+input[type="checkbox"]:checked {
+    background-color: #a8d4ff;
+}
+input[type="checkbox"]:checked::before {
+    transform: translate(12px, -50%);
+    background-color: #339bff;
+}
+
+/* 4. Quando desabilitado */
+input[type="checkbox"]:disabled {
+    background-color: #e0e0e0 !important;
+    cursor: not-allowed;
+}
+
+input[type="checkbox"]:disabled::before {
+    background-color: #bdbdbd !important;
+    box-shadow: none;
+}
+
+input[type="checkbox"]:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* 5. Corrigir sobreposição e alinhar texto */
+.schema-form-checkboxes .checkbox > label {
+    position: relative;
+    padding-left: 20px;
+    display: block;
+    line-height: 20px;
+}
+
+/* 6. Posicionar switch fixo à esquerda */
+.schema-form-checkboxes .checkbox > label input[type="checkbox"] {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Assinatura */
+#requiredSignatureModal {
+    padding: 0 !important;
+}
+
+#requiredSignatureModal .modal-dialog {
+    position: fixed !important;
+    top: 15% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    height: 75% !important;
+    max-width: 100% !important;
+}
+
+#requiredSignatureModal .modal-content {
+    height: 100% !important;
+    border-radius: 0 !important;
+}
+
+#requiredSignatureModal .modal-body {
+    position: relative !important;
+    padding: 0 !important;
+    min-height: 100% !important;
+    height: 100% !important;
+}
+
+#requiredSignatureModal iframe#iframeGdoc {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border: 0 !important;
+}
+
+@media (max-width: 768px) {
+    #requiredSignatureModal {
+        padding: 0 !important;
+    }
+
+    #requiredSignatureModal .modal-dialog {
+        position: fixed !important;
+        top: 15% !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        margin: 0 !important;
+        width: 95% !important;
+        height: 75% !important;
+        max-width: 100% !important;
+    }
+
+    #requiredSignatureModal .modal-content {
+        height: 100% !important;
+        border-radius: 0 !important;
+    }
+
+    #requiredSignatureModal .modal-body {
+        position: relative !important;
+        padding: 0 !important;
+        min-height: 100% !important;
+        height: 100% !important;
+    }
+
+    #requiredSignatureModal iframe#iframeGdoc {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        border: 0 !important;
+    }
+}
