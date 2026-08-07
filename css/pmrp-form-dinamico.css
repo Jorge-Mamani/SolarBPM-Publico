@@ -832,3 +832,14 @@ input[type="checkbox"]:focus {
         border: 0 !important;
     }
 }
+
+/*
+    * Linha Horizontal (divisor entre seções)
+*/
+[fd-element="horizontal-rule"] {
+    border: none;
+    border-top: 2px solid #9dcbff;
+    height: 0;
+    margin: 30px 0 !important;
+    padding: 0 !important;
+}
