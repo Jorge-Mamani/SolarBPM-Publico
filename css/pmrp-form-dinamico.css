@@ -105,11 +105,42 @@ h1 {
     * Alerta
 */
 [fd-element="alert"] .alert {
-    background: linear-gradient(90deg, #0861a4, #0b90d2, #0ebeff);
     border: none;
+    border-radius: 8px;
     margin-top: 50px;
     margin-bottom: 0px;
-    padding: 3px 0px;
+    padding: 12px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+[fd-element="alert"] .alert p {
+    margin: 0;
+    color: inherit;
+}
+
+/* Info (padrão / azul institucional) */
+[fd-element="alert"] .alert.alert-info {
+    background: linear-gradient(90deg, #0861a4, #0b90d2, #0ebeff);
+}
+
+/* Aviso */
+[fd-element="alert"] .alert.alert-warning {
+    background: linear-gradient(90deg, #b8860b, #d4a017, #f0b90b);
+}
+
+/* Erro */
+[fd-element="alert"] .alert.alert-danger {
+    background: linear-gradient(90deg, #a4263a, #d2373f, #e85d5d);
+}
+
+/* Sucesso */
+[fd-element="alert"] .alert.alert-success {
+    background: linear-gradient(90deg, #0f5132, #1e7a4f, #2e9e64);
 }
 
 /*
@@ -505,11 +536,21 @@ div.required label.control-label.preenchido::after {
     background: #fff;
     border-radius: 8px;
     padding: 20px;
+    box-sizing: border-box;
     width: 35%;
+    max-width: 600px;
     height: 700px;
+    max-height: 90vh;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     animation: modal-show 0.3s ease;
     font-family: Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+    .modal-box {
+        width: 90%;
+        height: 85vh;
+    }
 }
 
 @keyframes modal-show {
@@ -585,6 +626,8 @@ div.required label.control-label.preenchido::after {
 input[type="checkbox"] {
     width: 29px;
     height: 14px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
     background-color: #dfdfdf;
     border-radius: 14px;
@@ -650,6 +693,52 @@ input[type="checkbox"]:focus {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+}
+
+/*
+* Campos padrão (Botão, Mapa, Consulta, Valor, Senha)
+*/
+/* Inputs de texto */
+.form-control {
+    border-radius: 6px;
+    box-shadow: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: #339bff;
+    box-shadow: 0 0 0 3px rgba(51, 155, 255, 0.2);
+}
+
+/* Botões */
+.btn {
+    border-radius: 6px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(51, 155, 255, 0.25);
+}
+
+/* Mapa (Leaflet) */
+.leaflet-container {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Consulta */
+.input-group {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.input-group .form-control {
+    border-radius: 0;
 }
 
 /* Assinatura */
