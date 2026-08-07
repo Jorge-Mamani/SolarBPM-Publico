@@ -765,6 +765,21 @@ input[type="checkbox"]:focus {
     box-shadow: 0 0 0 3px rgba(1, 89, 220, 0.25);
 }
 
+/* Botão "principal" (campo tipo Botão) — o Solar BPM pinta .btn-primary de
+   verde por padrão; sobrescreve pra ficar no azul da marca. */
+.btn-primary {
+    background-color: #d6ecff !important;
+    color: #1d4c85 !important;
+    border-color: #9dcbff !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #0159dc !important;
+    color: #fff !important;
+    border-color: #0159dc !important;
+}
+
 /* Mapa (Leaflet) */
 .leaflet-container {
     border-radius: 8px;
@@ -855,10 +870,22 @@ input[type="checkbox"]:focus {
 /*
     * Linha Horizontal (divisor entre seções)
 */
+/* O Solar BPM já desenha uma linha própria dentro do elemento (ex.: um
+   <hr> nativo) — zera qualquer borda existente nele e nos filhos, e
+   desenha uma única linha via ::after, pra não duplicar o traço. */
+[fd-element="horizontal-rule"],
+[fd-element="horizontal-rule"] * {
+    border: none !important;
+    height: 0 !important;
+}
+
 [fd-element="horizontal-rule"] {
-    border: none;
-    border-top: 2px solid #9dcbff;
-    height: 0;
     margin: 30px 0 !important;
     padding: 0 !important;
+}
+
+[fd-element="horizontal-rule"]::after {
+    content: '';
+    display: block;
+    border-top: 2px solid #9dcbff;
 }
