@@ -286,11 +286,11 @@ div.required label.control-label::after {
     border: 1px solid #f1aeb5 !important;
 }
 
-/* Verde quando preenchido */
+/* Azul claro quando preenchido */
 div.required label.control-label.preenchido::after {
-    background-color: #d1e7dd !important;
-    color: #0f5132 !important;
-    border-color: #a3cfbb !important;
+    background-color: #d6ecff !important;
+    color: #0159dc !important;
+    border-color: #9dcbff !important;
 }
 
 /*
