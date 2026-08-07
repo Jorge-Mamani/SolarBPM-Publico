@@ -125,7 +125,7 @@ h1 {
 
 /* Info (padrão / azul institucional) */
 [fd-element="alert"] .alert.alert-info {
-    background: linear-gradient(90deg, #0861a4, #0b90d2, #0ebeff);
+    background: linear-gradient(90deg, #0159dc, #2b7aec, #3299ff);
 }
 
 /* Aviso */
@@ -156,7 +156,7 @@ h1 {
     border: none;
     border-radius: 999px;
     background-color: #e6f0ff;
-    color: #0056b3;
+    color: #0159dc;
     cursor: pointer;
     display: inline-block;
     vertical-align: middle;
@@ -166,7 +166,7 @@ h1 {
 
 /* Icone ? (opcional, agora mais discreto e alinhado) */
 .help-button .help-icon {
-    background-color: #0056b3;
+    background-color: #0159dc;
     color: white;
     border-radius: 50%;
     width: 14px;
@@ -183,13 +183,13 @@ h1 {
 
 /* Hover */
 .help-button:hover {
-    background: #007bff;
+    background: #3299ff;
     color: #fff;
 }
 
 .help-button:hover .help-icon {
     background-color: #fff;
-    color: #007bff;
+    color: #3299ff;
 }
 
 /* Backdrop (fundo escuro) */
@@ -228,7 +228,7 @@ h1 {
 /* Título do popup */
 .popup-ajuda h3 {
     margin-top: 0;
-    color: #0056b3;
+    color: #0159dc;
     font-weight: 600;
     font-size: 1.4em;
     margin-bottom: 10px;
@@ -432,7 +432,7 @@ div.required label.control-label.preenchido::after {
     display: inline-block;
     margin-top: 10px;
     padding: 10px 28px;
-    background: #007bff;
+    background: #3299ff;
     color: #fff;
     font-size: 15px;
     font-weight: 600;
@@ -443,7 +443,7 @@ div.required label.control-label.preenchido::after {
 }
 
 .alert-box button:hover {
-    background: #0056b3;
+    background: #0159dc;
 }
 
 .alert-box button:active {
@@ -451,7 +451,7 @@ div.required label.control-label.preenchido::after {
 }
 
 .alert-box button:focus {
-    outline: 2px solid #cce0ff;
+    outline: 2px solid #d0e8ff;
     outline-offset: 2px;
 }
 
@@ -482,18 +482,18 @@ div.required label.control-label.preenchido::after {
 .toggle-label {
     cursor: pointer;
     padding: 5px 10px;
-    border: 1px solid #00838F;
+    border: 1px solid #0159dc;
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 15px;
     font-weight: bold;
-    color: #00838F;
+    color: #0159dc;
 }
 
 .toggle-label:hover {
-    background: #E0F7F9;
+    background: #e6f2ff;
 }
 
 .toggle-label .texto {
@@ -503,7 +503,7 @@ div.required label.control-label.preenchido::after {
 .toggle-simbolo {
     font-size: 18px;
     font-weight: bold;
-    color: #00838F;
+    color: #0159dc;
     transition: transform 0.3s ease;
 }
 
@@ -566,7 +566,7 @@ div.required label.control-label.preenchido::after {
 
 .modal-box h3 {
     margin: 0 0 15px;
-    color: #00838F;
+    color: #0159dc;
     text-align: center;
 }
 
@@ -611,12 +611,12 @@ div.required label.control-label.preenchido::after {
 }
 
 .btn-confirmar {
-    background: #00838F;
+    background: #0159dc;
     color: #fff;
 }
 
 .btn-confirmar:hover {
-    background: #006d76;
+    background: #013a91;
 }
 
 /*
@@ -656,8 +656,8 @@ input[type="checkbox"]::before {
 
 /* 3. Quando marcado */
 input[type="checkbox"]:checked {
-    background-color: #00838F;
-    border-color: #00838F;
+    background-color: #0159dc;
+    border-color: #0159dc;
 }
 input[type="checkbox"]:checked::before {
     transform: rotate(45deg) scale(1);
@@ -677,7 +677,7 @@ input[type="checkbox"]:disabled:checked {
 
 input[type="checkbox"]:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 131, 143, 0.25);
+    box-shadow: 0 0 0 3px rgba(1, 89, 220, 0.25);
 }
 
 /* 5. Corrigir sobreposição e alinhar texto */
@@ -707,7 +707,7 @@ input[type="checkbox"]:focus {
 }
 
 .schema-form-checkboxes .checkbox:has(input[type="checkbox"]:checked) > label {
-    color: #00838F;
+    color: #0159dc;
     font-weight: 600;
 }
 
@@ -722,8 +722,8 @@ input[type="checkbox"]:focus {
 }
 
 .form-control:focus {
-    border-color: #339bff;
-    box-shadow: 0 0 0 3px rgba(51, 155, 255, 0.2);
+    border-color: #0159dc;
+    box-shadow: 0 0 0 3px rgba(1, 89, 220, 0.2);
 }
 
 /* Botões */
@@ -738,7 +738,7 @@ input[type="checkbox"]:focus {
 
 .btn:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(51, 155, 255, 0.25);
+    box-shadow: 0 0 0 3px rgba(1, 89, 220, 0.25);
 }
 
 /* Mapa (Leaflet) */
