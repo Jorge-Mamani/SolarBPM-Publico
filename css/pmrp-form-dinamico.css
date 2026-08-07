@@ -12,6 +12,7 @@
     --cor-marca-escura:       #1d4c85;  /* h1, texto de destaque, toggle, badge preenchido */
     --cor-marca-clara:        #d6ecff;  /* fundos preenchidos, botão confirmar */
     --cor-marca-clara-acento: #3299ff;  /* ponta clara do gradiente do alerta info */
+    --cor-marca-media:        #2b7aec;  /* meio do gradiente do alerta, checkbox marcado */
     --cor-marca-borda:        #9dcbff;  /* bordas de input, divisor horizontal */
     --cor-marca-hover:        #e6f2ff;  /* hover sutil sobre fundo claro */
     --cor-marca-fundo-badge:  #e6f0ff;  /* fundo do botão de ajuda (?) */
@@ -199,7 +200,7 @@ h1 {
 
 /* Info (padrão / azul institucional) */
 [fd-element="alert"] .alert.alert-info {
-    background: linear-gradient(90deg, var(--cor-marca-primaria), #2b7aec, var(--cor-marca-clara-acento));
+    background: linear-gradient(90deg, var(--cor-marca-escura), var(--cor-marca-media), var(--cor-marca-clara-acento));
 }
 
 /* Aviso */
@@ -735,8 +736,8 @@ input[type="checkbox"]::before {
 
 /* 3. Quando marcado */
 input[type="checkbox"]:checked {
-    background-color: var(--cor-marca-primaria);
-    border-color: var(--cor-marca-primaria);
+    background-color: var(--cor-marca-media);
+    border-color: var(--cor-marca-media);
 }
 input[type="checkbox"]:checked::before {
     transform: rotate(45deg) scale(1);
@@ -943,5 +944,5 @@ input[type="checkbox"]:focus {
 [fd-element="horizontal-rule"]::after {
     content: '';
     display: block;
-    border-top: 2px solid var(--cor-marca-borda);
+    border-top: 1px solid var(--cor-marca-borda);
 }
