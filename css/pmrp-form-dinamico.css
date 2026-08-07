@@ -1,4 +1,10 @@
 /*
+    * Link (raw): https://raw.githubusercontent.com/Jorge-Mamani/SolarBPM-Publico/main/css/pmrp-form-dinamico.css
+    * Link (jsDelivr CDN): https://cdn.jsdelivr.net/gh/Jorge-Mamani/SolarBPM-Publico@main/css/pmrp-form-dinamico.css
+    * GitHub: https://github.com/Jorge-Mamani/SolarBPM-Publico/blob/main/css/pmrp-form-dinamico.css
+*/
+
+/*
     * body
 */
 body {
@@ -56,8 +62,10 @@ h1 {
     white-space: normal;
     word-break: break-word;
     text-align: center;
-    width: calc(100% - clamp(120px, 25vw, 250px)); /* Largura total menos a largura do logoPMRP */
-    margin-left: clamp(120px, 25vw, 250px) !important; /* Margem para afastar do logoPMRP */
+    /* Espaço do logoPMRP espelhado dos dois lados para o título ficar sempre centralizado na página, com ou sem logo */
+    width: calc(100% - (2 * clamp(120px, 25vw, 250px)));
+    margin-left: clamp(120px, 25vw, 250px) !important;
+    margin-right: clamp(120px, 25vw, 250px) !important;
 }
 
 @media (max-width: 768px) {
@@ -77,6 +85,7 @@ h1 {
         margin-left: 0 !important;
         margin-right: 0 !important;
         padding: 10px 0;
+        text-align: center;
     }
 }
 
@@ -230,9 +239,9 @@ h1 {
 */
 /* VERMELHO (vazio) */
 div.required label.control-label::after {
-    content: '' !important;
-    margin-left: 4px !important;
-    padding: 1px 5px !important;
+    content: 'Obrigatório' !important;
+    margin-left: 6px !important;
+    padding: 2px 7px !important;
     font-size: 10px !important;
     font-weight: 600 !important;
     line-height: 1.2 !important;
@@ -243,12 +252,14 @@ div.required label.control-label::after {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
     background-color: #f8d7da !important;
     color: #842029 !important;
+    border: 1px solid #f1aeb5 !important;
 }
 
 /* Verde quando preenchido */
 div.required label.control-label.preenchido::after {
     background-color: #d1e7dd !important;
     color: #0f5132 !important;
+    border-color: #a3cfbb !important;
 }
 
 /*
