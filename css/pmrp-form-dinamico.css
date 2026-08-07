@@ -21,10 +21,12 @@
     --cor-sucesso:        #2e9e64;
     --cor-sucesso-escura: #0f5132;
     --cor-sucesso-media:  #1e7a4f;
+    --cor-sucesso-fundo:  #d1e7dd;
 
     --cor-atencao:        #f0b90b;
     --cor-atencao-escura: #b8860b;
     --cor-atencao-media:  #d4a017;
+    --cor-atencao-fundo:  #fff3cd;
 
     --cor-perigo:         #e85d5d;
     --cor-perigo-escura:  #a4263a;
@@ -179,18 +181,20 @@ h1 {
 /*
     * Alerta
 */
+/* Estilo "callout": fundo claro + borda colorida só na esquerda + texto
+   escuro — pensado pra ser usado repetidas vezes como divisor/rótulo de
+   seção (ex.: "Dados do Solicitante"), não só como aviso pontual, então
+   fica discreto o bastante pra não pesar quando repete várias vezes. */
 [fd-element="alert"] .alert {
     border: none;
-    border-radius: 8px;
+    border-left: 4px solid transparent;
+    border-radius: 6px;
     margin-top: 50px;
     margin-bottom: 0px;
-    padding: 12px 20px;
-    box-shadow: var(--sombra-card);
-    color: #ffffff;
+    padding: 12px 16px;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.5;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 }
 
 [fd-element="alert"] .alert p {
@@ -200,22 +204,30 @@ h1 {
 
 /* Info (padrão / azul institucional) */
 [fd-element="alert"] .alert.alert-info {
-    background: linear-gradient(90deg, var(--cor-marca-escura), var(--cor-marca-media), var(--cor-marca-clara-acento));
+    background: var(--cor-marca-clara);
+    border-left-color: var(--cor-marca-primaria);
+    color: var(--cor-marca-escura);
 }
 
 /* Aviso */
 [fd-element="alert"] .alert.alert-warning {
-    background: linear-gradient(90deg, var(--cor-atencao-escura), var(--cor-atencao-media), var(--cor-atencao));
+    background: var(--cor-atencao-fundo);
+    border-left-color: var(--cor-atencao-escura);
+    color: var(--cor-atencao-escura);
 }
 
 /* Erro */
 [fd-element="alert"] .alert.alert-danger {
-    background: linear-gradient(90deg, var(--cor-perigo-escura), var(--cor-perigo-media), var(--cor-perigo));
+    background: var(--cor-perigo-fundo);
+    border-left-color: var(--cor-perigo-escura);
+    color: var(--cor-perigo-escura);
 }
 
 /* Sucesso */
 [fd-element="alert"] .alert.alert-success {
-    background: linear-gradient(90deg, var(--cor-sucesso-escura), var(--cor-sucesso-media), var(--cor-sucesso));
+    background: var(--cor-sucesso-fundo);
+    border-left-color: var(--cor-sucesso-escura);
+    color: var(--cor-sucesso-escura);
 }
 
 /*
