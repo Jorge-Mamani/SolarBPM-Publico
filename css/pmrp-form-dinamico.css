@@ -696,23 +696,14 @@ input[type="checkbox"]:focus {
     transform: translateY(-50%);
 }
 
-/* 7. Cartão clicável: a linha inteira da opção vira um chip */
+/* 7. Destaque discreto: só o texto da opção marcada muda */
 .schema-form-checkboxes .checkbox {
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 8px 12px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     cursor: pointer;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.schema-form-checkboxes .checkbox:hover {
-    border-color: #00838F;
-}
-
-.schema-form-checkboxes .checkbox:has(input[type="checkbox"]:checked) {
-    background-color: #E0F7F9;
-    border-color: #00838F;
+.schema-form-checkboxes .checkbox > label {
+    transition: color 0.2s ease;
 }
 
 .schema-form-checkboxes .checkbox:has(input[type="checkbox"]:checked) > label {
