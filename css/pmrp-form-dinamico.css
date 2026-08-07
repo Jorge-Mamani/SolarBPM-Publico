@@ -656,8 +656,8 @@ input[type="checkbox"]::before {
 
 /* 3. Quando marcado */
 input[type="checkbox"]:checked {
-    background-color: #339bff;
-    border-color: #339bff;
+    background-color: #00838F;
+    border-color: #00838F;
 }
 input[type="checkbox"]:checked::before {
     transform: rotate(45deg) scale(1);
@@ -677,7 +677,7 @@ input[type="checkbox"]:disabled:checked {
 
 input[type="checkbox"]:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(51, 155, 255, 0.25);
+    box-shadow: 0 0 0 3px rgba(0, 131, 143, 0.25);
 }
 
 /* 5. Corrigir sobreposição e alinhar texto */
@@ -688,12 +688,36 @@ input[type="checkbox"]:focus {
     line-height: 20px;
 }
 
-/* 6. Posicionar switch fixo à esquerda */
+/* 6. Posicionar checkbox fixo à esquerda */
 .schema-form-checkboxes .checkbox > label input[type="checkbox"] {
     position: absolute;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+}
+
+/* 7. Cartão clicável: a linha inteira da opção vira um chip */
+.schema-form-checkboxes .checkbox {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.schema-form-checkboxes .checkbox:hover {
+    border-color: #00838F;
+}
+
+.schema-form-checkboxes .checkbox:has(input[type="checkbox"]:checked) {
+    background-color: #E0F7F9;
+    border-color: #00838F;
+}
+
+.schema-form-checkboxes .checkbox:has(input[type="checkbox"]:checked) > label {
+    color: #00838F;
+    font-weight: 600;
 }
 
 /*
