@@ -183,13 +183,13 @@ h1 {
 
 /* Hover */
 .help-button:hover {
-    background: #3299ff;
+    background: #0159dc;
     color: #fff;
 }
 
 .help-button:hover .help-icon {
     background-color: #fff;
-    color: #3299ff;
+    color: #0159dc;
 }
 
 /* Backdrop (fundo escuro) */
@@ -289,7 +289,7 @@ div.required label.control-label::after {
 /* Azul claro quando preenchido */
 div.required label.control-label.preenchido::after {
     background-color: #d6ecff !important;
-    color: #0159dc !important;
+    color: #1d4c85 !important;
     border-color: #9dcbff !important;
 }
 
@@ -432,18 +432,20 @@ div.required label.control-label.preenchido::after {
     display: inline-block;
     margin-top: 10px;
     padding: 10px 28px;
-    background: #3299ff;
-    color: #fff;
+    background: #d6ecff;
+    color: #1d4c85;
     font-size: 15px;
     font-weight: 600;
-    border: none;
+    border: 1px solid #9dcbff;
     border-radius: 6px;
     cursor: pointer;
-    transition: background 0.25s ease, transform 0.15s ease;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.15s ease;
 }
 
 .alert-box button:hover {
     background: #0159dc;
+    color: #fff;
+    border-color: #0159dc;
 }
 
 .alert-box button:active {
@@ -611,12 +613,15 @@ div.required label.control-label.preenchido::after {
 }
 
 .btn-confirmar {
-    background: #0159dc;
-    color: #fff;
+    background: #d6ecff;
+    color: #1d4c85;
+    border: 1px solid #9dcbff !important;
 }
 
 .btn-confirmar:hover {
-    background: #013a91;
+    background: #0159dc;
+    color: #fff;
+    border-color: #0159dc !important;
 }
 
 /*
