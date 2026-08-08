@@ -206,28 +206,28 @@ h1 {
 [fd-element="alert"] .alert.alert-info {
     background: var(--cor-marca-clara);
     border-left-color: var(--cor-marca-primaria);
-    color: var(--cor-marca-escura);
+    color: #1a1a1a;
 }
 
 /* Aviso */
 [fd-element="alert"] .alert.alert-warning {
     background: var(--cor-atencao-fundo);
     border-left-color: var(--cor-atencao-escura);
-    color: var(--cor-atencao-escura);
+    color: #1a1a1a;
 }
 
 /* Erro */
 [fd-element="alert"] .alert.alert-danger {
     background: var(--cor-perigo-fundo);
     border-left-color: var(--cor-perigo-escura);
-    color: var(--cor-perigo-escura);
+    color: #1a1a1a;
 }
 
 /* Sucesso */
 [fd-element="alert"] .alert.alert-success {
     background: var(--cor-sucesso-fundo);
     border-left-color: var(--cor-sucesso-escura);
-    color: var(--cor-sucesso-escura);
+    color: #1a1a1a;
 }
 
 /*
