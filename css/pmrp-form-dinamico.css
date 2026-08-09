@@ -35,8 +35,10 @@
     --cor-perigo-borda:   #f1aeb5;
 
     /* Growl "urgente" é proposital em vermelho — separado do --cor-perigo
-       comum porque é usado só pra mensagens mais graves do sistema. */
-    --cor-growl-urgente: #F7857C;
+       comum porque é usado só pra mensagens mais graves do sistema.
+       Comentado junto com o bloco "Alerta Sistema" (ver mais abaixo):
+       o growl voltou a usar as cores nativas do SolarBPM. */
+    /* --cor-growl-urgente: #F7857C; */
 
     /* === Cores neutras / texto === */
     --texto-titulo:     #333333;  /* h2, alert-header-title, modal-content, btn-cancelar */
@@ -425,8 +427,17 @@ div.required label.control-label.preenchido::after {
 }
 
 /*
-  * Alerta Sistema
-*/
+  * Alerta Sistema (growl / toast do canto superior direito)
+  *
+  * DESATIVADO: o growl agora usa as cores nativas do SolarBPM
+  * (--warning-main, --surface-main etc. do sp-bootstrap).
+  *
+  * Motivo de estar comentado e não apagado: estas regras sobrescreviam o
+  * sistema à força. As duas últimas vazavam pra além do warning —
+  * .growl-message * pintava de preto o texto de QUALQUER tipo de growl
+  * (success, info, danger), e .close, sem contexto na frente, atingia
+  * todo botão .close do Bootstrap na página, não só o do growl.
+  *
 .growl-container .growl-item.alert-warning {
     background: var(--cor-growl-urgente) !important;
     color: #000000 !important;
@@ -443,6 +454,7 @@ div.required label.control-label.preenchido::after {
 .close {
     color: #000 !important;
 }
+*/
 
 /*
     * Alert Personalizado
